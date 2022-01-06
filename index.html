@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title> Java Cafe </title>
+<script src="https://simplycodingcourses.com/files/simply.js"></script>
+<script src="JS_files/globals_customerData.js" type="text/javascript"></script>
+<script src="JS_files/transition.js" type="text/javascript"></script>
+<script src="JS_files/classDrink.js" type="text/javascript"></script>
+<script src="JS_files/screen1.js" type="text/javascript"></script>
+<script src="JS_files/screen2.js" type="text/javascript"></script>
+<script src="JS_files/screen3.js" type="text/javascript"></script>
+<script src="JS_files/screen4.js" type="text/javascript"></script>
+<script src="JS_files/screen5.js" type="text/javascript"></script>
+<script src="JS_files/evalScreen.js" type="text/javascript"></script>
+<script src="JS_files/menuBar.js" type="text/javascript"></script>
+<script src="JS_files/garbage_can.js" type="text/javascript"></script>
+<script src="JS_files/modeSelect.js" type="text/javascript"></script>
+
+
+<link rel="stylesheet" href="JS_files/trans.css">
+
+<script>
+var gameWindow;
+var background;
+var clouds;
+var cafeIcon;
+var tree1;
+var tree2;
+var barrier1;
+var barrier2;
+var beginTXT;
+var titleJavaCafe;
+var onBeginAudio = new Audio("Audio/2Enter.OGG");
+var TitleBGM = new Audio("Audio/1Title.mp3");
+var btnClickMenu = new Audio("Audio/scrollMenu.ogg");
+
+
+function start(){
+	TitleBGM.play();
+	TitleBGM.loop = true;
+
+	background = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/BG_tif2jf.png");
+	background.node.style.zIndex = 0;
+	background.type = "mainMenu";
+	background.setSize(1600,500);
+	background.center();
+
+	clouds = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Clouds_srunkg.gif");
+	clouds.node.style.zIndex = 0;
+	clouds.type = "mainMenu";
+	clouds.noBounds = true;
+	clouds.moveTo(-260,100);
+
+	cafeIcon = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Cafe_wb4rxw.png");
+	cafeIcon.node.style.zIndex = 0;
+	cafeIcon.type = "mainMenu";
+	cafeIcon.moveTo(460,260);
+
+	tree1 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/TreeAnim_fxisom.gif");
+	tree1.node.style.zIndex = 0;
+	tree1.type = "mainMenu";
+	tree1.moveTo(-200,220);
+	tree1.noBounds = true;
+
+	tree2 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/TreeAnim_fxisom.gif");
+	tree2.node.style.zIndex = 0;
+	tree2.type = "mainMenu";
+	tree2.moveTo(1300,220);
+	tree2.noBounds = true;
+
+	barrier1 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png");
+	barrier1.node.style.zIndex = 0;
+	barrier1.type = "mainMenu";
+	barrier1.moveTo(0,-1000);
+
+	barrier2 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png");
+	barrier2.node.style.zIndex = 0;
+	barrier2.type = "mainMenu";
+	barrier2.moveTo(0,1000);
+
+	beginTXT = new sjs.Text("Press SPACE to begin",200,"grey");
+	beginTXT.node.style.zIndex = 0;
+	beginTXT.type = "mainMenu";
+	beginTXT.node.style.fontFamily = "International Font of Mystery";
+	beginTXT.center().bottom();
+
+	titleJavaCafe = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/logo_nnrnrw.gif");
+	titleJavaCafe.node.style.zIndex = 0;
+	titleJavaCafe.moveTo(390,-100);
+	titleJavaCafe.noBounds = true;
+
+	var codehasrun = false; // so it doesnt trigger 5 million times
+
+	sjs.keyDown(SPACE_KEY, function startgame(){ //WHEN SPACE IS PRESSED
+		if (codehasrun == false) {
+			codehasrun = true;
+			cafeIcon.destroy(); // destroy old cafe icon and replace with anim
+			var cafeAnim = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/CafeAnim_vferhi.gif");
+			cafeAnim.moveTo(460,260);
+			onBeginAudio.play();
+			setTimeout(function(){
+				TitleBGM.pause();
+				TitleBGM = undefined;
+				cafeAnim.destroy();
+				var cafeEnter = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Cafe_Open_qc6llx.png");
+				cafeEnter.type = "mainMenu";
+				cafeEnter.moveTo(460,260);
+				transition("opening");
+				setTimeout(function(){
+					cafeEnter.destroy();
+					window.currentscreen = 0.5
+					mainModeSelect(); // go to modeSelect.js
+					//evalScreen();
+				}, 200);
+			},400);
+	}
+});
+
+} //end start
+
+
+
+
+function loadingScreen(){
+	sjs.open();
+
+	gameWindow = sjs.open("target",1600,1000);
+	document.body.style.backgroundColor = "black";
+
+	checkTutorial = new sjs.Text("Check below for a tutorial",200,"white");
+	checkTutorial.node.style.fontFamily = "International Font of Mystery";
+	checkTutorial.center();
+	startBtn = new sjs.Button("Start", function (){
+		btnClickMenu.play();
+		transition("loading");
+		var videoElement = document.getElementById('video_containter');
+		videoElement.remove();
+		setTimeout(function(){
+			start();
+		}, 250);
+	});
+
+	startBtn.node.style.fontFamily = "Apple Kid";
+	startBtn.node.style.width = '300px';
+	startBtn.node.style.height = '100px';
+	startBtn.node.style.background = 'YellowGreen'; // make it RED
+	startBtn.node.style.color = 'GreenYellow';
+	startBtn.node.style.fontSize = '75px';
+	startBtn.moveTo(650,750);
+}
+
+</script>
+</head>
+<body onload="loadingScreen()">
+<div id="target" style="margin:auto;background:black;"></div>
+<div align="center">
+	<video id="video_containter" class="video-js vjs-default-skin" controls preload="none" width="1148" height="716" poster="" data-setup="{}">
+		<source src="JavaCafe_Tutorial.mp4" type="video/mp4" />
+	</video>
+</div>
+</body>
+</html>
+
+
