@@ -46,7 +46,7 @@ function evalScreen(){
 	setTimeout(function(){
 		finalScore = new sjs.Text("Grade",200,"DeepPink");
 		finalScore.node.style.zIndex = 70;
-		finalScore.node.style.fontFamily =  "International Font of Mystery";
+		finalScore.node.style.fontFamily =  "Apple Kid";
 		finalScore.moveTo(900,500);
 		setTimeout(function(){
 			findGrade();
@@ -116,7 +116,7 @@ function findGrade(){
 		break;
 	}
 	rating.node.style.zIndex = 60;
-	rating.node.style.fontFamily = "International Font of Mystery";
+	rating.node.style.fontFamily = "Apple Kid";
 	rating.moveTo(1290,440);
 }
 

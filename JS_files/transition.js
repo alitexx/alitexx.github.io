@@ -1,6 +1,6 @@
 
 
-var checkTutorial; var startBtn;
+var checkTutorial; var startBtn; var fontsBtn; var DLversBtn;
 
 function transition(screenNum){
 	var timeoutTimer = 250;
@@ -14,7 +14,7 @@ function transition(screenNum){
 	 // fade out
 	switch(screenNum){ // should I make all of the images global? that seems like a waste
 		case "loading": // start
-		screenBeingDestroyed = [checkTutorial,startBtn];
+		screenBeingDestroyed = [checkTutorial,startBtn,fontsBtn,DLversBtn];
 		break;
 		case "opening": // title screen
 		screenBeingDestroyed = [background,clouds,cafeIcon,tree1,tree2,barrier1,barrier2,beginTXT,titleJavaCafe];

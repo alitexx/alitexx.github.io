@@ -21,6 +21,18 @@
 <link rel="stylesheet" href="JS_files/trans.css">
 
 <script>
+
+/* put back in css if i need to :
+
+@font-face {
+    font-family: "Apple Kid";
+    src: url(https://res.cloudinary.com/java-cafe/raw/upload/v1641481298/apple_kid_mqmuey.ttf) format("truetype");
+}
+p.customfont { 
+    font-family: "Apple Kid", Verdana, Tahoma;
+}
+*/
+
 var gameWindow;
 var background;
 var clouds;
@@ -34,6 +46,8 @@ var titleJavaCafe;
 var onBeginAudio = new Audio("Audio/2Enter.OGG");
 var TitleBGM = new Audio("Audio/1Title.mp3");
 var btnClickMenu = new Audio("Audio/scrollMenu.ogg");
+
+// me trying to get this stupid thing working
 
 
 function start(){
@@ -82,7 +96,7 @@ function start(){
 	beginTXT = new sjs.Text("Press SPACE to begin",200,"grey");
 	beginTXT.node.style.zIndex = 0;
 	beginTXT.type = "mainMenu";
-	beginTXT.node.style.fontFamily = "International Font of Mystery";
+	beginTXT.node.style.fontFamily = "Apple Kid";
 	beginTXT.center().bottom();
 
 	titleJavaCafe = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/logo_nnrnrw.gif");
@@ -129,7 +143,7 @@ function loadingScreen(){
 	document.body.style.backgroundColor = "black";
 
 	checkTutorial = new sjs.Text("Check below for a tutorial",200,"white");
-	checkTutorial.node.style.fontFamily = "International Font of Mystery";
+	checkTutorial.node.style.fontFamily = "Apple Kid";
 	checkTutorial.center();
 	startBtn = new sjs.Button("Start", function (){
 		btnClickMenu.play();
@@ -146,8 +160,33 @@ function loadingScreen(){
 	startBtn.node.style.height = '100px';
 	startBtn.node.style.background = 'YellowGreen'; // make it RED
 	startBtn.node.style.color = 'GreenYellow';
-	startBtn.node.style.fontSize = '75px';
+	startBtn.node.style.fontSize = '100px';
 	startBtn.moveTo(650,750);
+
+	fontsBtn = new sjs.Button("Font DL", function (){
+		window.open("https://res.cloudinary.com/java-cafe/raw/upload/v1641481298/apple_kid_mqmuey.ttf", "_blank");// send to fonts page
+	});
+
+	fontsBtn.node.style.fontFamily = "Apple Kid";
+	fontsBtn.node.style.width = '300px';
+	fontsBtn.node.style.height = '80px';
+	fontsBtn.node.style.background = 'LightPink'; // make it RED
+	fontsBtn.node.style.color = 'MistyRose';
+	fontsBtn.node.style.fontSize = '50px';
+	fontsBtn.moveTo(0,10);
+
+	DLversBtn = new sjs.Button("DL Vers. here! DL for smoother gameplay!", function (){
+		window.open("https://github.com/alitexx/JavaCafeDLVers", "_blank"); // send to DL page
+	});
+
+	DLversBtn.node.style.fontFamily = "Apple Kid";
+	DLversBtn.node.style.width = '300px';
+	DLversBtn.node.style.height = '100px';
+	DLversBtn.node.style.background = 'LightPink'; // make it RED
+	DLversBtn.node.style.color = 'MistyRose';
+	DLversBtn.node.style.fontSize = '50px';
+	DLversBtn.moveTo(0,110);
+
 }
 
 </script>
@@ -158,6 +197,7 @@ function loadingScreen(){
 	<video id="video_containter" class="video-js vjs-default-skin" controls preload="none" width="1148" height="716" poster="" data-setup="{}">
 		<source src="JavaCafe_Tutorial.mp4" type="video/mp4" />
 	</video>
+	<p class="customfont">Hello world!</p>
 </div>
 </body>
 </html>

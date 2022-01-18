@@ -1,0 +1,11 @@
+
+<style type="text/css">
+@font-face {
+    font-family: "Apple Kid";
+    src: url(https://res.cloudinary.com/java-cafe/raw/upload/v1641481298/apple_kid_mqmuey.ttf) format("truetype");
+}
+p.customfont { 
+    font-family: "Apple Kid", Verdana, Tahoma;
+}
+</style>
+<p class="customfont">Hello world!</p>
