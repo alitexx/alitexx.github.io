@@ -1,2 +1,2 @@
-# alitexx.github.io
-Java Cafe ONLINE VERSION!!!!
+# Java Cafe Version History
+1.0 == Initial release! 
