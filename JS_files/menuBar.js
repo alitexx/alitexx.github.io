@@ -166,6 +166,36 @@ function spawnOrderForm(name){
 	case "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer10_qqrbai.png":
 		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1641337302/Images/customerData/autumn_Menu_lrrvck.png");
 	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer11_vo2syj.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Parappa_Menu_stpyzm.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653571602/Images/customerData/customer12_ivtaxh.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Ingo_Menu_mtilok.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer13_gvasgl.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Nagito_Menu_uygt7c.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer14_vvudfc.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Monokuma_Menu_myct0y.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer15_kl87er.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Phoenix_Menu_r6flg4.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16_e9ma3u.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Coco_Menu_w4leb2.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17_qf0mth.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Kelley_Menu_igvmfb.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer18_ndusqh.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/GB_Menu_co0jfi.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer19_fnnxgc.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Laventon_Menu_esgggq.png");
+	break;
+	case "https://res.cloudinary.com/java-cafe/image/upload/v1653568992/Images/customerData/customer20_efoxf0.png":
+		spawningInMenu("https://res.cloudinary.com/java-cafe/image/upload/v1653593619/Images/customerData/gobble_Menu_sesluo.png");  ////////////////////// GET IMAGE HERE PLESAE
+	break;
 	}
 }
 

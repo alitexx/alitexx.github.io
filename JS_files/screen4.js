@@ -118,7 +118,7 @@ function screen4() {
 			audioS5.play();
 
 			customersBeingServed[x.numInLine] = undefined; // delete their spot in line
-			delete(customersBeingServed[x.numInLine])
+			//delete(customersBeingServed[x.numInLine])
 
 			x.destroy();
 			x = undefined;
@@ -138,7 +138,7 @@ function screen4() {
 			transition(4);
 
 			drinksBeingMade[drinkOnScn4.numInLine] = undefined;
-			delete(drinksBeingMade[drinkOnScn4.numInLine]); // fully delete the class
+			//delete(drinksBeingMade[drinkOnScn4.numInLine]); // fully delete the class
 
 			drinkOnScn4.destroy();
 			drinkOnScn4 = undefined;

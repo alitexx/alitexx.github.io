@@ -6,18 +6,6 @@ var audioS5 = new Audio("Audio/grading.mp3");
 audioS5.loop = true;
 
 function screen5(menuImage, spotToBeDeleted){
-	background5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/grading_screen_eo1vhx.png");
-	background5.node.style.zIndex = 3;
-	background5.setSize(1600,800);
-	background5.center();
-
-	barrier1 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png");
-	barrier1.node.style.zIndex = 50;
-	barrier1.moveTo(0,-1400);
-
-	barrier2 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png");
-	barrier2.node.style.zIndex = 50;
-	barrier2.moveTo(0,1400);
 
 	switch(menuImage){
 		case "https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/spamton_Menu_r7sabk.png" : // spamton
@@ -60,6 +48,46 @@ function screen5(menuImage, spotToBeDeleted){
 			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer10_flipped_dk0yx6.png");
 			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
 		break;
+		case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Parappa_Menu_stpyzm.png" : // parappa
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514815/Images/customerData/customer11_flipped_qk42py.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
+		break;
+		case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Ingo_Menu_mtilok.png" : // INGO
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653576868/Images/customerData/customer12_flipped_wdbnyg.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
+		break;
+        case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Nagito_Menu_uygt7c.png" : // NAGITO
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer13_gvasgl.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/L_Finished_u4qqkl.gif");
+		break;
+        case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Monokuma_Menu_myct0y.png" : // MONKUMA
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer14_vvudfc.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
+		break;
+        case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Phoenix_Menu_r6flg4.png" : // Phoenix_Menu_r6flg4
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514813/Images/customerData/customer15_flipped_yoxubm.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
+		break;
+		case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Coco_Menu_w4leb2.png" : // COCO
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16_e9ma3u.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
+		break;
+        case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Kelley_Menu_igvmfb.png" : //  KELLEY
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17_qf0mth.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/L_Finished_u4qqkl.gif");
+		break;
+        case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/GB_Menu_co0jfi.png" : // GIRLBOSS
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer18_ndusqh.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/L_Finished_u4qqkl.gif");
+		break;
+        case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Laventon_Menu_esgggq.png" : // LAVENTON
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653514813/Images/customerData/customer19_flipped_aj59jc.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif");
+		break;
+		case "https://res.cloudinary.com/java-cafe/image/upload/v1653593619/Images/customerData/gobble_Menu_sesluo.png" : // GOBBLE
+			customerImage5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1653568992/Images/customerData/customer20_efoxf0.png");
+			finished_drink = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/L_Finished_u4qqkl.gif");
+		break;
 	}
 	customerImage5.node.style.zIndex = 4;
 	customerImage5.setSize(350,525);
@@ -71,6 +99,19 @@ function screen5(menuImage, spotToBeDeleted){
 	textBbl = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/textBbl_i29jle.gif");
 	textBbl.moveTo(50,250);
 	textBbl.node.style.zIndex = 4;
+
+	background5 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/grading_screen_eo1vhx.png");
+	background5.node.style.zIndex = 3;
+	background5.setSize(1600,800);
+	background5.center();
+
+	barrier1 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png");
+	barrier1.node.style.zIndex = 50;
+	barrier1.moveTo(0,-1400);
+
+	barrier2 = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png");
+	barrier2.node.style.zIndex = 50;
+	barrier2.moveTo(0,1400);
 
 	customerRatingDisplayed = new sjs.Text(customerGRADING[0],100,"black");
 	customerRatingDisplayed.moveTo(260,325);
@@ -89,7 +130,7 @@ function screen5(menuImage, spotToBeDeleted){
 		continueBtn = new sjs.Button("Click To Continue", function (){
 			audioS5.pause();
 			FINISHEDCUSTOMERS = FINISHEDCUSTOMERS + 1 // add one to the tally of customers completed
-			if (endlessMode == true){displayCustomersServed.setText(["Customers served : "+FINISHEDCUSTOMERS.toString()],75,"white");}; // change if player is in endless mode
+			if (endlessMode == true){displayCustomersServed.setText(["Customers served : "+FINISHEDCUSTOMERS.toString()],60,"white");}; // change if player is in endless mode
 			if (FINISHEDCUSTOMERS >= 3 && endlessMode == false){
 				hooray.load();
 				hooray.play();
@@ -101,13 +142,15 @@ function screen5(menuImage, spotToBeDeleted){
 			} else {
 			setTimeout(function (){
 				transition(5);
-				overworldBGM.load();
-				overworldBGM.play();
-				checksForSwitchingScreens(currentScreen,1); // cannot fully delete items in a setTimeout function
-				currentScreen = 1;
-				screen1();
-				canChangeScreens = true;
-				able2BTopped = true;
+				setTimeout(function (){ // BE SURE TO CHANGE THIS ON THE OFFLINE VERS TOO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+					overworldBGM.load();
+					overworldBGM.play();
+					checksForSwitchingScreens(currentScreen,1); // cannot fully delete items in a setTimeout function
+					currentScreen = 1;
+					screen1();
+					canChangeScreens = true;
+					able2BTopped = true;
+				}, 250);
 			}, 250);
 			}
 		});

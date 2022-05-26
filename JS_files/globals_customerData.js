@@ -114,13 +114,84 @@ var DISPLAYED_customer_order = { // IMAGE LINKS FOR EASIER CALLING
 		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/white_uun5cq.png",
 		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
 		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whipped_btn_scxsav.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/vanilla_gzxpuz.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cinnamon_Icon_rqr0rj.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer11_vo2syj.png": { // PARAPPA THE FREAKING RAPPER
+		"name": "Parappa",
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/light_roast_ci73au.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherNO_l0xvbm.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/sugarcubes_Icon_apxoux.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/choco_syrup_rpcpce.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/chocolate_azqwbr.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653571602/Images/customerData/customer12_ivtaxh.png": { // INGO BINGO
+		"name": "Ingo",
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/mint_ixdgce.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherNO_l0xvbm.png",
+		"toppings" : [null, "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_bifdhl.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer13_gvasgl.png": { // NAGITO KOMAEDA
+		"name": "Nagito",
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/large_empty_vu2sxn.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/dark_roast_rfdvdn.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whipped_btn_scxsav.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/caramel_yiz2je.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cinnamon_Icon_rqr0rj.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer14_vvudfc.png": { // MONOKUMA
+		"name": "Monokuma", // ask rachel abt this one
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/battery_acid_ktm8yb.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherNO_l0xvbm.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_bifdhl.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_icon_qdhp1o.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer15_kl87er.png": { // p-o-nix wring
+		"name": "Phoenix", // ask rachel abt this one
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/medium_roast_f5yp6k.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherNO_l0xvbm.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whipped_btn_scxsav.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/pumpkin_p9acb9.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cinnamon_Icon_rqr0rj.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16_e9ma3u.png": { // COCO
+		"name": "Coco", 
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/mediumDark_roast_qps7dx.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherNO_l0xvbm.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/choco_syrup_rpcpce.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/chocolate_azqwbr.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cinnamon_Icon_rqr0rj.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17_qf0mth.png": { // the king himself mr kelley
+		"name": "Kelley", 
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/large_empty_vu2sxn.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/light_roast_ci73au.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whipped_btn_scxsav.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_bifdhl.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/expresso_piahuk.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer18_ndusqh.png": { // girl boss
+		"name": "Girl Boss",
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/large_empty_vu2sxn.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/elderberry_lsbn0r.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
+		"toppings" : [null, "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_bifdhl.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer19_fnnxgc.png": { // professor laventon
+		"name": "Laventon",
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/elderberry_lsbn0r.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whipped_btn_scxsav.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/sugarcubes_Icon_apxoux.png"]
+	},
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653568992/Images/customerData/customer20_efoxf0.png": { // gobble
+		"name": "Gobble",
+		"size": "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/large_empty_vu2sxn.png",
+		"drinkType": "https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/chai_bsuud8.png",
+		"latte": "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
+		"toppings" : ["https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cara_syrup_wualvf.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/caramel_yiz2je.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/sugarcubes_Icon_apxoux.png"]
 	}
 }
 
 var NPCstats = null // current npc waiting
+var runningValue = 0;
 
 function findNewCustomer(){ // FINDS A NEW CUSTOMER TO BE SPAWNED, DOESNT DO ANY OF THE SPAWNING
-	switch (Math.floor(Math.random() * 10)) { // change num according to new npcs being added
+	switch (Math.floor(Math.random() * 20)) { // change num according to new npcs being added Math.floor(Math.random() * 20)
 		case 0: // spammy
 		// spamton still spawns MANY TIMES so have it cut it out
 			NPCstats = spawnNPC("Spamton", "https://res.cloudinary.com/java-cafe/image/upload/v1641337302/Images/customerData/customer1_hgyyi1.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/customer1Interract_t5tes0.gif");
@@ -152,8 +223,39 @@ function findNewCustomer(){ // FINDS A NEW CUSTOMER TO BE SPAWNED, DOESNT DO ANY
 		case 9: // Autumn
 			NPCstats = spawnNPC("Autumn", "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer10_qqrbai.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer10Interract_xb4ch5.gif");
 			break;
+		case 10: // Parappa
+			NPCstats = spawnNPC("Parappa", "https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer11_vo2syj.png","https://res.cloudinary.com/java-cafe/image/upload/v1653519835/Images/customerData/customer11Interract_mebru9.gif");
+			break;
+		case 11: // Ingo
+			NPCstats = spawnNPC("Ingo", "https://res.cloudinary.com/java-cafe/image/upload/v1653571602/Images/customerData/customer12_ivtaxh.png","https://res.cloudinary.com/java-cafe/image/upload/v1653571609/Images/customerData/customer12Interract_k9ophw.gif");
+			break;
+		case 12: // Nagito
+			NPCstats = spawnNPC("Nagito", "https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer13_gvasgl.png","https://res.cloudinary.com/df6blhv0i/image/upload/v1653326978/output-onlinegiftools_1_oyrk2m.gif"); // nagito gif is from da school account
+			break;
+		case 13: // Monokuma
+			NPCstats = spawnNPC("Monokuma", "https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer14_vvudfc.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer14Interract_rmwspq.gif");
+			break;
+		case 14: // Phoenix
+			NPCstats = spawnNPC("Phoenix", "https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer15_kl87er.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer15Interract_bpuzkx.gif");
+			break;
+		case 15: // Coco
+			NPCstats = spawnNPC("Coco", "https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16_e9ma3u.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16Interract_eqx1pw.gif");
+			break;
+		case 16: // Mr Kelley
+			NPCstats = spawnNPC("Kelley", "https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17_qf0mth.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17Interract_yxpmhe.gif");
+			break;
+		case 17: // Girl Boss
+			NPCstats = spawnNPC("Girl Boss", "https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer18_ndusqh.png","https://res.cloudinary.com/java-cafe/image/upload/v1653571614/Images/customerData/customer18Interract_ieip6p.gif");
+			break;
+		case 18: // Laventon
+			NPCstats = spawnNPC("Laventon", "https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer19_fnnxgc.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer19Interract_lq1fpr.gif");
+			break;
+		case 19: // Gobble
+			NPCstats = spawnNPC("Gobble", "https://res.cloudinary.com/java-cafe/image/upload/v1653568992/Images/customerData/customer20_efoxf0.png","https://res.cloudinary.com/java-cafe/image/upload/v1653568986/Images/customerData/customer20Interract_e2h9tq.gif");
+			break;
 		}
-	}// end funct
+		runningValue += 1;
+}// end funct
 
 
 var customerWaiting = false; // checks if theres a customer
@@ -193,12 +295,12 @@ function spawningInACustomer(exception){ // ACTUALLY SPAWNS THE GRAPHICS
 				clickToTakeOrder = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/newCustomer_cozd33.gif");
 			}		
 			awaitingOrderCustomer.node.style.zIndex = 1;
-			//awaitingOrderCustomer.setSize(412.5,536.25);
 			awaitingOrderCustomer.moveTo(1200,200);
 
 
 			clickToTakeOrder.node.style.zIndex = 1;
 			clickToTakeOrder.moveTo(850,200);
+
 
 			clickToTakeOrder.onMouseDown(function(){
 				canChangeScreens = false;
@@ -244,9 +346,11 @@ function spawnNPC(customerComingIn, imageForspawn, talking_gif){ // CHECKS IF SO
 			if (typeof value == "undefined"){
 				slotOpen = key; //assign the first open slot to customer
 				break;
-			} else {slotOpen = 0;}
+			} else {
+				slotOpen = 0;
+			}
 			}// end for
-			if (slotOpen != 0) {
+			if (slotOpen != 0 && customerWaiting == false) {
 					customersBeingServed[slotOpen] = customerComingIn; // sets null as their name
 					customerWaiting = true; // someone is here
 					if (window.currentScreen < 5){ // makes sure player isnt being graded

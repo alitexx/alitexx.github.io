@@ -145,7 +145,15 @@ function screen3() {
 		pouringSFX.play();
 		var pouring = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/frotherwithMilk_yxempc.png");
 		moveable_frother.destroy();
-		pouring.moveTo(cup.x, (cup.y - 100));
+		// new code
+			//                                                                                                                                                             COPY INTO OFFLINE VERS COPY INTO OFFLINE VERS
+		//
+		if (cup.src == "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/L_draggable_ytby3n.png"){ // if drink is a large
+			pouring.moveTo((cup.x + 20), (cup.y - 220));
+		} else {
+			pouring.moveTo((cup.x + 20), (cup.y - 120));
+		}
+		
 		drinksBeingMade[cup.numInLine].addLatteMilk();
 		setTimeout(function(){
 			canChangeScreens = true;

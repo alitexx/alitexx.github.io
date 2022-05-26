@@ -12,6 +12,8 @@ var dayCount = 1; // keeps track of how many days you've gone;
 var endlessMode = false; // sees if you're playing on endless
 
 var overworldBGM;
+var displayGameVers;
+var versionHistory;
 
 function mainModeSelect() {
 // audio
@@ -31,9 +33,14 @@ function mainModeSelect() {
 		backgroundMMS.node.style.zIndex = 0;
 
 		MENUtxt = new sjs.Text("MENU",200,"red");
-		MENUtxt.node.style.fontFamily = "International Font of Mystery";
+		MENUtxt.node.style.fontFamily = "Apple Kid";
 		MENUtxt.type = "modeSelect";
-		MENUtxt.moveTo(700,0);
+		MENUtxt.moveTo(650,0);
+
+		displayGameVers = new sjs.Text(["Version "+gameVersion.toString() +" BETA"],40,"red");
+		displayGameVers.type = "mainMenu";
+		displayGameVers.node.style.fontFamily = "Apple Kid";
+		displayGameVers.bottom();
 
 	
 		campaignBtn = new sjs.Button("Campaign", function(){
@@ -102,7 +109,7 @@ function mainModeSelect() {
 				creditsOpen = true;
 				var creditsBG = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337080/Images/credits_kyfxbs.png");
 				creditsBG.moveTo(260,145);
-				var textCredits = new sjs.Text("Special thanks to Gino and Rachel for <br>making character sprites and testing!<br>Thanks to my dad for helping me with <br>debugging! You guys rock! :) <br><br> And of course, thank YOU for playing!",100,"white");
+				var textCredits = new sjs.Text("Customer Sprites Creators: Gino, Rachel, Ms D <br>Soundtrack credits: Miitopia, Dogz Fashion, FNF <br>Programming, design, everything else : Me! (Katie) <br><br> Special thanks to my dad for helping me all along the way! <br> And of course, thank YOU for playing!",50,"white");
 				textCredits.node.style.zIndex = 2;
 				textCredits.node.style.fontFamily =  "Apple Kid";
 				textCredits.moveTo(310,260);
@@ -129,13 +136,26 @@ function mainModeSelect() {
 		creditsBtn.node.style.color = 'PaleTurquoise';
 		creditsBtn.node.style.fontSize = '50px';
 		creditsBtn.moveTo(1400,10);
+
+		versionHistory = new sjs.Button("Update Log", function(){
+			// send to text file in github
+			window.open("https://github.com/alitexx/alitexx.github.io/blob/main/README.md", "_blank"); // send to DL page
+		});
+		versionHistory.node.style.fontFamily = "Apple Kid"
+		versionHistory.node.style.width = '200px';
+		versionHistory.node.style.height = '50px';
+		versionHistory.node.style.background = 'LightSeaGreen';
+		versionHistory.node.style.color = 'PaleTurquoise';
+		versionHistory.node.style.fontSize = '50px';
+		versionHistory.moveTo(1400,100);
 	
 } // end of main
 function NEXTDAY(){
-	var dayDisplay = new sjs.Text(["Day "+dayCount.toString()],200,"white");
+	var dayDisplay = new sjs.Text(["Day "+dayCount.toString()],125,"white");
 	dayDisplay.node.style.zIndex = 1;
 	dayDisplay.node.style.fontFamily =  "Apple Kid";
-	dayDisplay.moveTo(675,350);
+	dayDisplay.center();
+	//playerDayX(); // found in platformGame.js, PLEASE FIX AT SOME POINT!!!!!!!!!!!!!!! THANK YOU :)
 	setTimeout(function(){
 		transition(); // num transfered in does nothing
 		setTimeout(function(){
@@ -147,7 +167,7 @@ function NEXTDAY(){
 			overworldBGM = new Audio("Audio/4BGM.wav"); // maybe add a sfx for the start of a new day?
 			overworldBGM.loop = true;
 			overworldBGM.play();
-		},250);
+		},200);
 	},1250);
 }
 
@@ -206,3 +226,4 @@ function resetGlobals(){
 		numFive: undefined,
 	};
 }
+

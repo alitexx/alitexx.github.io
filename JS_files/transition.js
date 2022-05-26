@@ -20,7 +20,7 @@ function transition(screenNum){
 		screenBeingDestroyed = [background,clouds,cafeIcon,tree1,tree2,barrier1,barrier2,beginTXT,titleJavaCafe];
 		break;
 		case "mainMenu": // main menu
-		screenBeingDestroyed = [backgroundMMS,MENUtxt,campaignBtn,customBtn,creditsBtn];
+		screenBeingDestroyed = [backgroundMMS,MENUtxt,campaignBtn,customBtn,creditsBtn,displayGameVers, versionHistory];
 		break;
 		case 1: // screen 1
 		screenBeingDestroyed = [background1, player]; // start here
@@ -37,9 +37,9 @@ function transition(screenNum){
 		case 5: // finished drinks
 		screenBeingDestroyed = [background5,customerImage5,finished_drink,textBbl,customerRatingDisplayed,face_Score,barrier1,barrier2,continueBtn];
 		break;
-		//case 6: // finished drinks
-		//screenBeingDestroyed = [barrier1,barrier2,continueGameBtn,endGameBtn,bgBar,screen1btn,screen2btn,screen3btn,screen4btn,garbage_btn,scoopOfBeans,moveable_frother,moveable_Lcup1,moveable_Lcup2,moveable_Lcup3,moveable_Scup1,moveable_Scup2,moveable_Scup3,insertedScoop1,insertedScoop2,insertedScoop3,drip1,drip2,drip3,gradingPaper,bgFinal,character,customerReview1,customerReview2,customerReview3,finalScore,totalForFinal,smile1,smile2,smile3,menu1,menu2,menu3,menu4,menu5,awaitingOrderCustomer,clickToTakeOrder,newCustomer];
-		//break;
+		case 6: // new day
+		screenBeingDestroyed = [barrier1,barrier2,continueGameBtn,endGameBtn,bgBar,screen1btn,screen2btn,screen3btn,screen4btn,garbage_btn,scoopOfBeans,moveable_frother,moveable_Lcup1,moveable_Lcup2,moveable_Lcup3,moveable_Scup1,moveable_Scup2,moveable_Scup3,insertedScoop1,insertedScoop2,insertedScoop3,drip1,drip2,drip3,gradingPaper,bgFinal,character,customerReview1,customerReview2,customerReview3,finalScore,totalForFinal,smile1,smile2,smile3,menu1,menu2,menu3,menu4,menu5,awaitingOrderCustomer,clickToTakeOrder,newCustomer];
+		break;
 	}
 
 

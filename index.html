@@ -5,6 +5,7 @@
 <title> Java Cafe </title>
 <script src="https://simplycodingcourses.com/files/simply.js"></script>
 <script src="JS_files/globals_customerData.js" type="text/javascript"></script>
+<script src="JS_files/platformGame.js" type="text/javascript"></script>
 <script src="JS_files/transition.js" type="text/javascript"></script>
 <script src="JS_files/classDrink.js" type="text/javascript"></script>
 <script src="JS_files/screen1.js" type="text/javascript"></script>
@@ -16,6 +17,7 @@
 <script src="JS_files/menuBar.js" type="text/javascript"></script>
 <script src="JS_files/garbage_can.js" type="text/javascript"></script>
 <script src="JS_files/modeSelect.js" type="text/javascript"></script>
+
 
 
 <link rel="stylesheet" href="JS_files/trans.css">
@@ -33,6 +35,8 @@ p.customfont {
 }
 */
 
+/* HEY YOU!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+USE start(); TO START THE GAME!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 var gameWindow;
 var background;
 var clouds;
@@ -46,6 +50,8 @@ var titleJavaCafe;
 var onBeginAudio = new Audio("Audio/2Enter.OGG");
 var TitleBGM = new Audio("Audio/1Title.mp3");
 var btnClickMenu = new Audio("Audio/scrollMenu.ogg");
+
+var gameVersion = 1.1;
 
 // me trying to get this stupid thing working
 
@@ -93,11 +99,13 @@ function start(){
 	barrier2.type = "mainMenu";
 	barrier2.moveTo(0,1000);
 
-	beginTXT = new sjs.Text("Press SPACE to begin",200,"grey");
+	beginTXT = new sjs.Text("Press the space bar to begin!",75,"grey");
 	beginTXT.node.style.zIndex = 0;
 	beginTXT.type = "mainMenu";
 	beginTXT.node.style.fontFamily = "Apple Kid";
 	beginTXT.center().bottom();
+
+
 
 	titleJavaCafe = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/logo_nnrnrw.gif");
 	titleJavaCafe.node.style.zIndex = 0;
@@ -105,28 +113,28 @@ function start(){
 	titleJavaCafe.noBounds = true;
 
 	var codehasrun = false; // so it doesnt trigger 5 million times
+	beginPlatformer(); // go to platformGame.js
+
 
 	sjs.keyDown(SPACE_KEY, function startgame(){ //WHEN SPACE IS PRESSED
 		if (codehasrun == false) {
 			codehasrun = true;
 			cafeIcon.destroy(); // destroy old cafe icon and replace with anim
 			var cafeAnim = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/CafeAnim_vferhi.gif");
+			platformPlayer.node.style.zIndex = 5;
 			cafeAnim.moveTo(460,260);
 			onBeginAudio.play();
 			setTimeout(function(){
 				TitleBGM.pause();
 				TitleBGM = undefined;
 				cafeAnim.destroy();
-				var cafeEnter = new sjs.Image("https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Cafe_Open_qc6llx.png");
-				cafeEnter.type = "mainMenu";
-				cafeEnter.moveTo(460,260);
 				transition("opening");
+				endPlatformer(); // destroys platformer sequence
 				setTimeout(function(){
-					cafeEnter.destroy();
-					window.currentscreen = 0.5
+					window.currentScreen = 0.5
 					mainModeSelect(); // go to modeSelect.js
-					//evalScreen();
-				}, 200);
+					//evalScreen(); // used to TP instantly to eval screen. only for testing
+				}, 250);
 			},400);
 	}
 });
@@ -134,6 +142,142 @@ function start(){
 } //end start
 
 
+function initializeImages(){
+	var initializingBG = new sjs.Image("Audio/initializing.gif");
+	initializingBG.moveTo(555,370);
+
+	var initializingTXT = new sjs.Text("Loading...", 100, "black");
+	initializingTXT.node.style.fontFamily = "Apple Kid";
+	initializingTXT.center();
+	var doneProcessing = false;
+
+	// make the mega list here
+
+	var everyImage = ["https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Cafe_Open_qc6llx.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/CafeAnim_vferhi.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/BG_tif2jf.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Clouds_srunkg.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/Cafe_wb4rxw.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/TreeAnim_fxisom.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/DarkBorder_ewfdgz.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/logo_nnrnrw.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/prompt2user_wworgm.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337302/Images/customerData/customer1_hgyyi1.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer2_ljtitf.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/customer3_pbdrls.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer4_nievxr.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer5_fwxeh3.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer6_ml8ytv.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer7_mfzeea.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer8_y0uivk.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer9_pcev80.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer10_qqrbai.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/customer1Interract_t5tes0.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer2Interract_jaaish.gif","https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/customer3Interract_b2emuu.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer4Interract_egxvib.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337303/Images/customerData/Customer5Interract_ztaj1d.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer6Interract_wc0gb9.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer7Interract_qbrlqm.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer8Interract_vsjm61.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer9Interract_lp6yry.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/Customer10Interract_xb4ch5.gif","https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/newCustomer_cozd33.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/menu_sjdffr.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337236/Images/mainMenu/MenuBG_dlpqjs.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337080/Images/credits_kyfxbs.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/screen1_gwjsjx.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/player_ypynhx.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/Screen2_momblr.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337230/Images/moveDrinkParts/moveToScreen3_cia5jk.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/battery_acid_ktm8yb.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopBattery_p2q94u.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/light_roast_ci73au.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopLightEST_vdgjfw.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/medium_roast_f5yp6k.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopLighter_ogzead.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/mediumDark_roast_qps7dx.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopDarker_towe5x.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/dark_roast_rfdvdn.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopDarkEST_joihmd.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/chamomile_zxawp4.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopChamo_ls0qgf.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/green_jpomoc.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopGreen_tfrhs4.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/elderberry_lsbn0r.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopElder_bh5rqk.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/white_uun5cq.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopWhite_pgoifi.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/chai_bsuud8.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopChai_plhxpz.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/mint_ixdgce.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopWhite_pgoifi.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/prompt2user_wworgm.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/screen3_hxkvf6.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337230/Images/moveDrinkParts/moveToScreen4_itmfml.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer_null_h8iet9.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337230/Images/moveDrinkParts/screen3CoffeeBar_jgxx1q.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337080/Images/circle_zpf4lx.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/Frother_zhenoz.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/large_empty_vu2sxn.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/small_empty_hmlzkl.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/frotherwithMilk_yxempc.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/insertScoop_nug53a.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/insertedScoop_c43be5.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer1_s8u7yp.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer2_qfalpf.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer3_xpqxzx.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer4_dnosrd.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer5_vtzcna.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer6_zfwn2c.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer7_nrmdea.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337311/Images/brewTimer/timer8_tzcsgy.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/L_draggable_ytby3n.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/drip/coffeeDripBattery_jmaodz.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/drip/coffeeDripLight_wd7sld.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/drip/coffeeDripChamo_lvi5bu.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/drip/coffeeDripDark_xejkwx.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/drip/coffeeDripGreen_viauwz.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/drip/coffeeDripElder_omt4st.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/grading_screen_eo1vhx.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/spamton_Menu_r7sabk.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/UG_Menu_krhdya.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/leo_Menu_gnrbqw.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/robin_Menu_ajcliw.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/luigi_Menu_kmznov.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/SG_Menu_gdss61.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/glamrock_Menu_lvbuew.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337304/Images/customerData/gingerbrave_Menu_efpx05.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/greg_Menu_lqknvj.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337302/Images/customerData/autumn_Menu_lrrvck.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/L_Finished_u4qqkl.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/S_Finished_zgrqtt.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/textBbl_i29jle.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/final_Eval_Screen_tt8rdc.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/gradingMenu_ijkkyd.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/player_Grading_zoaiil.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337080/Images/face_Angry_m8snhf.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/face_Neutral_lxj7xn.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337080/Images/face_Happy_vxtz9r.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherYES_uck5jp.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337248/Images/drinkTypeButtons/FrotherNO_l0xvbm.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/screen4_jue648.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337230/Images/moveDrinkParts/moveToFinish_t98ntn.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337305/Images/customerData/menu_Holder_if6pco.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/INFO_f9zdgb.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/INFO_ivvu2r.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337081/Images/NO_avllgy.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337082/Images/YES_qyfeu5.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/bottle_Whipped_cyz0lf.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/bottle_Cara_cyxovh.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/bottle_Choco_rixyzi.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/sugarcubes_lpsq9h.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/sugarcube_Single_vdqvps.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/phys_peppermint_klobsl.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_Single_ibev8x.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cinnamon_m2kwfy.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/cinnamon_Single_xgnpeo.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/vanilla_gzxpuz.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/vanilla_drip_vpgaux.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/pumpkin_p9acb9.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/pumpkin_drip_v6ipdp.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/chocolate_azqwbr.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/chocolate_drip_eo5ady.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/caramel_yiz2je.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/caramel_drip_nncrbt.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_bifdhl.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_drip_j94nfy.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/expresso_piahuk.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/expresso_drip_toke19.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whippedCream_pouring_c9bbzf.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cara_pouring_ihaypw.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/chocolate_pouring_hz7mtn.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/whipped_btn_scxsav.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337224/Images/screen4Items/sugarcubes_Icon_apxoux.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/choco_syrup_rpcpce.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337223/Images/screen4Items/peppermint_icon_qdhp1o.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cinnamon_Icon_rqr0rj.png", "https://res.cloudinary.com/java-cafe/image/upload/v1641337222/Images/screen4Items/cara_syrup_wualvf.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer11_vo2syj.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653519835/Images/customerData/customer11Interract_mebru9.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653571602/Images/customerData/customer12_ivtaxh.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653571609/Images/customerData/customer12Interract_k9ophw.gif", 
+	"https://res.cloudinary.com/df6blhv0i/image/upload/v1653326978/output-onlinegiftools_1_oyrk2m.gif", "https://res.cloudinary.com/java-cafe/image/upload/v1653514216/Images/customerData/customer13_gvasgl.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer14_vvudfc.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer14Interract_rmwspq.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer15_kl87er.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer15Interract_bpuzkx.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16_e9ma3u.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514227/Images/customerData/customer16Interract_eqx1pw.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17_qf0mth.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514820/Images/customerData/customer17Interract_yxpmhe.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer18_ndusqh.png","https://res.cloudinary.com/java-cafe/image/upload/v1653571614/Images/customerData/customer18Interract_ieip6p.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer19_fnnxgc.png","https://res.cloudinary.com/java-cafe/image/upload/v1653514226/Images/customerData/customer19Interract_lq1fpr.gif",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653568992/Images/customerData/customer20_efoxf0.png","https://res.cloudinary.com/java-cafe/image/upload/v1653568986/Images/customerData/customer20Interract_e2h9tq.gif", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Laventon_Menu_esgggq.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/GB_Menu_co0jfi.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Kelley_Menu_igvmfb.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Coco_Menu_w4leb2.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Phoenix_Menu_r6flg4.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Monokuma_Menu_myct0y.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Nagito_Menu_uygt7c.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Ingo_Menu_mtilok.png",
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Parappa_Menu_stpyzm.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653514813/Images/customerData/customer19_flipped_aj59jc.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514813/Images/customerData/customer15_flipped_yoxubm.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653576868/Images/customerData/customer12_flipped_wdbnyg.png", 
+	"https://res.cloudinary.com/java-cafe/image/upload/v1653514815/Images/customerData/customer11_flipped_qk42py.png", "https://res.cloudinary.com/java-cafe/image/upload/v1653593619/Images/customerData/gobble_Menu_sesluo.png"];
+
+	// leave a lot of space for it
+	
+	var loopNum = 0;
+	var image;
+	while (doneProcessing == false){
+		image = new sjs.Image(everyImage[loopNum]); // will generate all images in list
+		
+		loopNum += 1;
+
+		deleteVariables(image);
+
+		if (loopNum == everyImage.length){ // if it has looped through all images
+			doneProcessing = true; // quit
+		}
+	}
+
+	setTimeout(function(){
+		transition("loading"); // transition out
+		setTimeout(function(){
+			deleteVariables(initializingBG); // delete literally 2 variables
+			deleteVariables(initializingTXT);
+			start(); // begin game!
+		}, 250);
+	}, 500);
+
+	everyImage = undefined;
+	delete(everyImage);
+}
+
+function deleteVariables(var1){ // very stupid function ik. i dont want to spend a lifetime editing code so this can work
+	var1.destroy();
+	var1 = undefined;
+	delete(var1);
+}
 
 
 function loadingScreen(){
@@ -142,7 +286,7 @@ function loadingScreen(){
 	gameWindow = sjs.open("target",1600,1000);
 	document.body.style.backgroundColor = "black";
 
-	checkTutorial = new sjs.Text("Check below for a tutorial",200,"white");
+	checkTutorial = new sjs.Text("Tutorial can be found below!",100,"white");
 	checkTutorial.node.style.fontFamily = "Apple Kid";
 	checkTutorial.center();
 	startBtn = new sjs.Button("Start", function (){
@@ -151,7 +295,9 @@ function loadingScreen(){
 		var videoElement = document.getElementById('video_containter');
 		videoElement.remove();
 		setTimeout(function(){
-			start();
+			/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			//initializing
+			initializeImages();
 		}, 250);
 	});
 
@@ -170,22 +316,23 @@ function loadingScreen(){
 	fontsBtn.node.style.fontFamily = "Apple Kid";
 	fontsBtn.node.style.width = '300px';
 	fontsBtn.node.style.height = '80px';
-	fontsBtn.node.style.background = 'LightPink'; // make it RED
-	fontsBtn.node.style.color = 'MistyRose';
+	fontsBtn.node.style.background = 'MistyRose'; // make it RED
+	fontsBtn.node.style.color = 'HotPink';
 	fontsBtn.node.style.fontSize = '50px';
 	fontsBtn.moveTo(0,10);
 
-	DLversBtn = new sjs.Button("DL Vers. here! DL for smoother gameplay!", function (){
+	/*DLversBtn = new sjs.Button("Local Version", function (){
 		window.open("https://github.com/alitexx/JavaCafeDLVers", "_blank"); // send to DL page
 	});
 
 	DLversBtn.node.style.fontFamily = "Apple Kid";
 	DLversBtn.node.style.width = '300px';
 	DLversBtn.node.style.height = '100px';
-	DLversBtn.node.style.background = 'LightPink'; // make it RED
-	DLversBtn.node.style.color = 'MistyRose';
+	DLversBtn.node.style.background = 'MistyRose'; // make it RED
+	DLversBtn.node.style.color = 'HotPink';
 	DLversBtn.node.style.fontSize = '50px';
 	DLversBtn.moveTo(0,110);
+	*/ // open back up when the DL vers is updated
 
 }
 
@@ -197,7 +344,7 @@ function loadingScreen(){
 	<video id="video_containter" class="video-js vjs-default-skin" controls preload="none" width="1148" height="716" poster="" data-setup="{}">
 		<source src="JavaCafe_Tutorial.mp4" type="video/mp4" />
 	</video>
-	<p class="customfont">Hello world!</p>
+	<p class="customfont">Click here here once if your graphics get funky!</p>
 </div>
 </body>
 </html>

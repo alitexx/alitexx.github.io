@@ -45,7 +45,7 @@ class Drink { // broken in internet explorer
   addTopping(newTopping)
   {
     var valueIsTopping = false;
-    for (const [key, value] of Object.entries(this.toppings)) { // still says its undefined??????????????????????????????????????????S
+    for (const [key, value] of Object.entries(this.toppings)) {
       if (value == newTopping) {
         valueIsTopping = true; // stops the next code from running
         break;
@@ -94,11 +94,38 @@ class Drink { // broken in internet explorer
         this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopChamo_ls0qgf.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", false,[null, 'Sugar Cube', undefined, undefined]);
       break;
       case "https://res.cloudinary.com/java-cafe/image/upload/v1641337302/Images/customerData/autumn_Menu_lrrvck.png" : // autumn
-        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopWhite_pgoifi.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", true,[null,'Whipped Cream', 'Shot of Vanilla', 'Cinnamon']);
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopWhite_pgoifi.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", true,[null,'Whipped Cream', 'Shot of Vanilla', 'Cinnamon']); // go to grading to double check
       break;
-
-
-
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Parappa_Menu_stpyzm.png" : // PARAPPA
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopLightEST_vdgjfw.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", false,[null,'Sugar Cube', 'Chocolate Syrup', 'Shot of Chocolate']); // getShot of Chocolate
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Ingo_Menu_mtilok.png" : // INGO
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopWhite_pgoifi.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", false,[null,'Shot of Peppermint', undefined, undefined]);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Nagito_Menu_uygt7c.png" : // NAGITO
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopDarkEST_joihmd.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/L_draggable_ytby3n.png", true,[null,'Whipped Cream', 'Shot of Caramel', 'Cinnamon']);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Monokuma_Menu_myct0y.png" : // MONKUMA
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopBattery_p2q94u.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", false,[null,'Shot of Peppermint', 'Peppermint Candy', undefined]);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Phoenix_Menu_r6flg4.png" : // Phoenix_Menu_r6flg4
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopLighter_ogzead.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", false,[null,'Whipped Cream', 'Shot of Pumpkin', 'Cinnamon']);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Coco_Menu_w4leb2.png" : // COCO
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopDarker_towe5x.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", false,[null,'Chocolate Syrup', 'Shot of Chocolate', 'Cinnamon']);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Kelley_Menu_igvmfb.png" : //  KELLEY
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopLightEST_vdgjfw.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/L_draggable_ytby3n.png", true,[null,'Whipped Cream', 'Shot of Peppermint', 'Shot of Expresso']);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/GB_Menu_co0jfi.png" : // GIRLBOSS
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopElder_bh5rqk.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/L_draggable_ytby3n.png", true,[null,'Shot of Peppermint', undefined, undefined]);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653528010/Images/customerData/Laventon_Menu_esgggq.png" : // LAVENTON
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopElder_bh5rqk.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/S_draggable_dzqv0j.png", true,[null,'Whipped Cream', 'Sugar Cube', undefined]);
+      break;
+      case "https://res.cloudinary.com/java-cafe/image/upload/v1653593619/Images/customerData/gobble_Menu_sesluo.png" : // gobble
+        this.happiness = this.GRADING("https://res.cloudinary.com/java-cafe/image/upload/v1641337247/Images/drinkTypeButtons/scoops/scoopChai_plhxpz.png","https://res.cloudinary.com/java-cafe/image/upload/v1641337246/Images/drinkTypeButtons/L_draggable_ytby3n.png", true,[null,'Caramel Syrup', 'Shot of Caramel', 'Sugar Cube']);
+      break;
     }
       return this.happiness;
   }

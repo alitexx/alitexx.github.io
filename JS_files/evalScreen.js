@@ -44,10 +44,10 @@ function evalScreen(){
 		if (runningTimer >= 3){clearInterval(theInterval);}
 	}, 1000);
 	setTimeout(function(){
-		finalScore = new sjs.Text("Grade",200,"DeepPink");
+		finalScore = new sjs.Text("Grade",150,"DeepPink");
 		finalScore.node.style.zIndex = 70;
 		finalScore.node.style.fontFamily =  "Apple Kid";
-		finalScore.moveTo(900,500);
+		finalScore.moveTo(950,575);
 		setTimeout(function(){
 			findGrade();
 			spawnButtons();
@@ -94,30 +94,30 @@ function displayReviews(num){
 function findGrade(){
 	switch(totalForFinal){
 		case 0: // player gets F
-		rating = new sjs.Text("F",300,"DarkSlateBlue");
+		rating = new sjs.Text("F",200,"DarkSlateBlue");
 		break;
 		case 1: // player gets E
-		rating = new sjs.Text("E",300,"DarkGreen");
+		rating = new sjs.Text("E",200,"DarkGreen");
 		break;
 		case 2: // player gets D
-		rating = new sjs.Text("D",300,"YellowGreen");
+		rating = new sjs.Text("D",200,"YellowGreen");
 		break;
 		case 3: // player gets C
-		rating = new sjs.Text("C",300,"Gold");
+		rating = new sjs.Text("C",200,"Gold");
 		break;
 		case 4: // player gets B
-		rating = new sjs.Text("B",300,"Orange");
+		rating = new sjs.Text("B",200,"Orange");
 		break;
 		case 5: // player gets A
-		rating = new sjs.Text("A",300,"Red");
+		rating = new sjs.Text("A",200,"Red");
 		break;
 		case 6: // player gets S
-		rating = new sjs.Text("S",300,"Khaki");
+		rating = new sjs.Text("S",200,"Khaki");
 		break;
 	}
 	rating.node.style.zIndex = 60;
 	rating.node.style.fontFamily = "Apple Kid";
-	rating.moveTo(1290,440);
+	rating.moveTo(1295,550);
 }
 
 function spawnButtons(){
@@ -126,7 +126,7 @@ function spawnButtons(){
 		// delete everything from last day
 		resultsMusic.pause();
 		window.currentScreen = 1;
-		transition();// pass in 6 here and delete that screen from here to free up space
+		transition(6);// pass in 6 here and delete that screen from here to free up space
 		setTimeout(function(){
 			NEXTDAY();
 			var toBeDeleted = [rating,barrier1,barrier2,continueGameBtn,endGameBtn,bgBar,screen1btn,screen2btn,screen3btn,screen4btn,garbage_btn,scoopOfBeans,moveable_frother,moveable_Lcup1,moveable_Lcup2,moveable_Lcup3,moveable_Scup1,moveable_Scup2,moveable_Scup3,insertedScoop1,insertedScoop2,insertedScoop3,drip1,drip2,drip3,gradingPaper,bgFinal,character,customerReview1,customerReview2,customerReview3,finalScore,totalForFinal,smile1,smile2,smile3,menu1,menu2,menu3,menu4,menu5,awaitingOrderCustomer,clickToTakeOrder,newCustomer,drinksBeingMade,customersBeingServed];
